@@ -27,6 +27,8 @@ defmodule Worker.Router do
     {:noreply, threads}
   end
 
+  # Helpers
+
   defp map(thread) do
     case Enum.join(thread, "\n") do
       "/c" <> m -> {Broker.Calendar, m}
@@ -46,6 +48,6 @@ defmodule Worker.Router do
     status
   end
 
-  defp clean(:partial, threads, chat), do: {:ok, threads}
-  defp clean(_status,  threads, chat), do: {:ok, Map.delete(threads, chat.id)}
+  defp clean(:partial, threads, _chat), do: {:ok, threads}
+  defp clean(_status,  threads,  chat), do: {:ok, Map.delete(threads, chat.id)}
 end

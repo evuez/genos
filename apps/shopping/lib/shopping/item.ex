@@ -3,7 +3,13 @@ defmodule Shopping.Item do
   alias Shopping.List
 
   def create(body) do
-    List.grab
-      |> Trello.create_item(body)
+    list = List.grab
+
+    split_items(body)
+      |> Enum.each(&Trello.create_item(list, &1))
+
+    :ok
   end
+
+  defp split_items(items), do: String.split(items, "\n")
 end

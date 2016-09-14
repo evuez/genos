@@ -12,6 +12,8 @@ defmodule Calendar.Schedule do
     hours
       |> split_days
       |> Enum.each(&Trello.create_item(checklist, &1))
+
+    :ok
   end
 
   defp split_days(hours), do: String.split(hours, "\n")

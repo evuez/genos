@@ -10,6 +10,8 @@ defmodule Worker.Poller do
 
     updates |> Enum.each(&Router.route(router, &1))
 
+    :timer.sleep 1000
+
     case List.last(updates) do
       nil    -> poll(router)
       update -> poll(router, update.update_id + 1)
