@@ -2,7 +2,7 @@ defmodule Broker.Shopping do
   @behaviour Worker.Broker
 
   def handle(message) do
-    case String.strip(message) do
+    case String.trim(message) do
       ""    -> {:partial, "I'm waiting for your items :)"}
       items -> add(items)
     end

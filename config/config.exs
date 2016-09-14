@@ -9,8 +9,8 @@ config :bridges,
   trello_key: "Trello key",
   trello_token: "Trello token"
 
-config :calendar,
-  trello_list: "Trello list for calendar"
+config :schedule,
+  trello_list: "Trello list for schedule"
 
 config :shopping,
   trello_list: "Trello list for shopping"

@@ -1,6 +1,6 @@
-defmodule CalendarTest do
+defmodule ScheduleTest do
   use ExUnit.Case
-  doctest Calendar
+  doctest Schedule
 
   test "the truth" do
     assert 1 + 1 == 2

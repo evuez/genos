@@ -31,9 +31,9 @@ defmodule Worker.Router do
 
   defp map(thread) do
     case Enum.join(thread, "\n") do
-      "/c" <> m -> {Broker.Calendar, m}
-      "/e" <> m -> {Broker.Expenses, m}
-      "/s" <> m -> {Broker.Shopping, m}
+      "/sc" <> m -> {Broker.Schedule, m}
+      "/ex" <> m -> {Broker.Expenses, m}
+      "/sh" <> m -> {Broker.Shopping, m}
       "/h" <> m -> {Broker.Help, m}
       garbage   -> {Broker.Garbage, garbage}
     end

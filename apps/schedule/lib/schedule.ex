@@ -1,7 +1,7 @@
-defmodule Calendar.Schedule do
+defmodule Schedule do
   use Bridges.Trello
 
-  @list_id Application.get_env(:calendar, :trello_list)
+  @list_id Application.get_env(:schedule, :trello_list)
   @checklist "Schedule"
 
   def create(hours) do
