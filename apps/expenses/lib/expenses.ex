@@ -1,0 +1,2 @@
+defmodule Expenses do
+end
