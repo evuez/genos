@@ -5,4 +5,4 @@ erl_crash.dump
 *.ez
 *.swp
 config/dev.exs
-.tool-versions
+.targets
