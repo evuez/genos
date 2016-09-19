@@ -36,6 +36,9 @@ defmodule Worker.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:nadia, git: "https://github.com/zhyu/nadia.git"}]
+    [{:nadia, git: "https://github.com/zhyu/nadia.git"},
+     {:expenses, in_umbrella: true},
+     {:schedule, in_umbrella: true},
+     {:shopping, in_umbrella: true}]
   end
 end

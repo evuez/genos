@@ -11,5 +11,3 @@ WORKDIR /genos
 
 RUN mix local.hex --force
 RUN mix local.rebar --force
-RUN mix deps.get
-RUN mix deps.compile

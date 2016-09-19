@@ -1,6 +1,9 @@
 defmodule Worker.Poller do
   alias Worker.Router
 
+  @whitelist Application.get_env(:worker, :whitelist)
+
+
   def poll(router) do
     poll(router, 0)
   end
@@ -8,7 +11,9 @@ defmodule Worker.Poller do
   defp poll(router, offset) do
     {:ok, updates} = Nadia.get_updates offset: offset, limit: 20
 
-    updates |> Enum.each(&Router.route(router, &1))
+    updates
+      |> Enum.filter(&whitelist/1)
+      |> Enum.each(&Router.route(router, &1))
 
     :timer.sleep 1000
 
@@ -16,5 +21,9 @@ defmodule Worker.Poller do
       nil    -> poll(router)
       update -> poll(router, update.update_id + 1)
     end
+  end
+
+  defp whitelist(%{message: %{from: %{username: username}}}) do
+    Enum.member?(@whitelist, username)
   end
 end

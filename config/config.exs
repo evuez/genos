@@ -4,6 +4,9 @@ use Mix.Config
 config :nadia,
   token: "Telegram bot token"
 
+config :worker,
+  whitelist: ["List", "of", "Telegram", "usernames"]
+
 config :bridges,
   ifttt_key: "IFTTT Maker key",
   trello_key: "Trello key",
