@@ -3,6 +3,9 @@ defmodule Worker.Poller do
 
   @whitelist Application.get_env(:worker, :whitelist)
 
+  def start_link(router) do
+    Task.start_link(__MODULE__, :poll, [router])
+  end
 
   def poll(router) do
     poll(router, 0)

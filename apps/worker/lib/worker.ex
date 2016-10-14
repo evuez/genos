@@ -8,6 +8,7 @@ defmodule Worker do
 
     children = [
       worker(Worker.Router, [Worker.Router]),
+      worker(Worker.Poller, [Worker.Router]),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
